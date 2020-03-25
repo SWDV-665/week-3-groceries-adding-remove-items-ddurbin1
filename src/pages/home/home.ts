@@ -14,31 +14,36 @@ export class HomePage {
 
   items = [
     {
-      name: "Milk",
+      name: "Bread",
       quantity: 2    
     },
     {
-      name: "Bread",
+      name: "Milk",
       quantity: 1    
     },
     {
       name: "Banana",
       quantity: 12    
     },
-    
+    {
+      name: "Fish",
+      quantity: 1    
+    },
   ];
 
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
   }
 
-  removeItem(item) {
-    console.log("Removing Item - ", item);
+  removeItem(item, index) {
+    console.log("Removing Item - ", item, index);
     const toast = this.toastCtrl.create({
-      message: 'Removing Item - ' + item.name + " ...",
+      message: 'Removing Item - ' + index + " ...",
       duration: 3000
     });
     toast.present();
+
+    this.items.splice(index, 1);
   }
 
   addItem() {
